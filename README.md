@@ -9,7 +9,9 @@ Mongo DB + Express.js + Vue.js + Node.js 로 이루 어진 MEVN Stack 프로젝�
 #### 2) csms-ot 인스턴트 생성
 
 ## 실행
-#### 1) vue.js 서버 실행
+#### 1) mongoDB 서버 실행
+
+#### 2) vue.js 서버 실행
 ```
 cd csms-ot-mevn // csms-ot-mevn 폴더 까지 접근
 ```
@@ -17,9 +19,9 @@ cd csms-ot-mevn // csms-ot-mevn 폴더 까지 접근
 npm install
 ```
 ```
-cd npm run server
+npm run server
 ```
-#### 2) node.js 서버 실행
+#### 3) node.js 서버 실행
 ```
 cd api  // api 폴더 접근
 ```
