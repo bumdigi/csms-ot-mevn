@@ -34,9 +34,3 @@ npm install nodemon --save-dev  // nodemon 이 설치되지 않았을 경우
 ```
 nodemon server
 ```
-
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
