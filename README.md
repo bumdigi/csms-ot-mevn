@@ -35,7 +35,7 @@ cd csms-ot-mevn // csms-ot-mevn 폴더 까지 접근
 npm install
 ```
 ```
-npm run server
+npm run serve
 ```
 #### 3) node.js 서버 실행
 ```
