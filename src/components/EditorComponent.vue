@@ -1,18 +1,29 @@
 /*jslint devel: true */
 <template>
-  <codemirror ref="myCm"
-              :value="code" 
-              :options="cmOptions"
-              @ready="onCmReady"
-              @focus="onCmFocus"
-              @input="onCmCodeChange">
-  </codemirror>
-
+  <div>
+    <div>
+      <select v-model="cmOptions.mode">
+        <option value="text/javascript" selected>javascript</option>
+        <option value="htmlmixed">HTML</option>
+        <option value="css">css</option>
+      </select>
+    </div>
+    <div>
+      <codemirror ref="myCm"
+                  :value="code" 
+                  :options="cmOptions"
+                  @ready="onCmReady"
+                  @focus="onCmFocus"
+                  @input="onCmCodeChange">
+      </codemirror>
+    </div>
+  </div>
 </template>
 
 <script>
 // language js
 import 'codemirror/mode/javascript/javascript.js'
+import 'codemirror/mode/htmlmixed/htmlmixed.js'
 // theme css
 import 'codemirror/theme/base16-dark.css'
 // more codemirror resources
@@ -48,6 +59,7 @@ export default {
     onCmCodeChange(newCode) {
       console.log('this is new code', newCode)
       this.code = newCode
+      this.cmOptions.mode = 'htmlmixed'
     }
   },
   computed: {
@@ -56,7 +68,7 @@ export default {
     }
   },
   mounted() {
-    console.log('this is current codemirror object', this.codemirror)
+    console.log('this is current codemirror object', this.cmOptions.mode)
     // you can use this.codemirror to do something...
   },
   components: {
