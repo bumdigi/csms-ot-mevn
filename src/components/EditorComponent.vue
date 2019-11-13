@@ -14,7 +14,7 @@
     </div>
     <div>
       <codemirror ref="myCm"
-                  :value="code" 
+                  :value="code"
                   :options="cmOptions"
                   @ready="onCmReady"
                   @focus="onCmFocus"
@@ -28,15 +28,16 @@
 // language js
 import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/mode/htmlmixed/htmlmixed.js'
+import 'codemirror/mode/css/css.js'
 // theme css
 import 'codemirror/theme/base16-dark.css'
 // more codemirror resources
 // import 'codemirror/some-resource...'
 import { codemirror } from 'vue-codemirror'
- 
+
 // require styles
 import 'codemirror/lib/codemirror.css'
- 
+
 // require more codemirror resource...
 
 export default {
@@ -63,7 +64,6 @@ export default {
     onCmCodeChange(newCode) {
       console.log('this is new code', newCode)
       this.code = newCode
-      this.cmOptions.mode = 'htmlmixed'
     }
   },
   computed: {
