@@ -6,6 +6,8 @@
         <div class="card-body">
             I'm the Home Component component.
         </div>
+      
+        
       </div>
     </div>
   </div>
