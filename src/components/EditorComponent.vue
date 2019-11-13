@@ -1,12 +1,16 @@
 /*jslint devel: true */
 <template>
   <div>
-    <div>
-      <select v-model="cmOptions.mode">
-        <option value="text/javascript" selected>javascript</option>
-        <option value="htmlmixed">HTML</option>
-        <option value="css">css</option>
-      </select>
+    <div class="container">
+      <div class="row justify-content-start">
+        <div class="col-4">
+        <select class="custom-select" v-model="cmOptions.mode">
+          <option value="text/javascript" selected>javascript</option>
+          <option value="htmlmixed">HTML</option>
+          <option value="css">css</option>
+        </select>
+        </div>
+      </div>
     </div>
     <div>
       <codemirror ref="myCm"

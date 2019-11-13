@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-      <ul class="navbar-nav">
+    <nav class="main-nav navbar navbar-expand-lg bg-secondary text-uppercase fixed-top navbar-shrink">
+      <router-link to="/" class="navbar-brand js-scroll-trigger" href="#page-top">CSMS Editor</router-link>
+      <ul class="navbar-nav collapse navbar-collapse">
         <li class="nav-item">
           <router-link to="/" class="nav-link">Home</router-link>
-          
         </li>
         <li class="nav-item">
           <router-link to="/create" class="nav-link">Create Post</router-link>
