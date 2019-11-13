@@ -1,25 +1,41 @@
-/*jslint devel: true */
 <template>
   <div>
     <div class="container">
       <div class="row justify-content-start">
-        <div class="col-4">
-        <select class="custom-select" v-model="cmOptions.mode">
-          <option value="text/javascript" selected>javascript</option>
-          <option value="htmlmixed">HTML</option>
-          <option value="css">css</option>
-        </select>
+        <div class="btn-toolbar mb-3 mt-3" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text" id="btnGroupAddon">Mode</div>
+            </div>
+            <select class="form-control custom-select" v-model="cmOptions.mode">
+              <option value="text/javascript" selected>javascript</option>
+              <option value="htmlmixed">HTML</option>
+              <option value="css">css</option>
+            </select>
+            <div class="input-group-prepend ml-2">
+              <div class="input-group-text" id="btnGroupAddon">Theme</div>
+            </div>
+            <select class="form-control custom-select">
+              <option value="" selected>theme1</option>
+              <option value="">theme2</option>
+              <option value="">theme3</option>
+            </select>
+          </div>
+          <div class="btn-group ml-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-secondary">Compile</button>
+            <button type="button" class="btn btn-secondary">Stop</button>
+          </div>
         </div>
       </div>
     </div>
     <div>
-      <codemirror ref="myCm"
-                  :value="code"
-                  :options="cmOptions"
-                  @ready="onCmReady"
-                  @focus="onCmFocus"
-                  @input="onCmCodeChange">
-      </codemirror>
+    <codemirror ref="myCm" class="code-editor"
+                :value="code"
+                :options="cmOptions"
+                @ready="onCmReady"
+                @focus="onCmFocus"
+                @input="onCmCodeChange">
+    </codemirror>
     </div>
   </div>
 </template>
