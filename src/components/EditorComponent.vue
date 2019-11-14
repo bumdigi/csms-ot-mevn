@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <div class="row justify-content-start">
-        <div class="btn-toolbar mb-3 mt-3" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-toolbar mb-3 mt-3 ml-3" role="toolbar" aria-label="Toolbar with button groups">
           <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text" id="btnGroupAddon">Mode</div>
@@ -28,14 +28,14 @@
         </div>
       </div>
     </div>
-    <div>
-    <codemirror ref="myCm" class="code-editor"
-                :value="code"
-                :options="cmOptions"
-                @ready="onCmReady"
-                @focus="onCmFocus"
-                @input="onCmCodeChange">
-    </codemirror>
+    <div class="container">
+      <codemirror ref="myCm" class="code-editor"
+                  :value="code"
+                  :options="cmOptions"
+                  @ready="onCmReady"
+                  @focus="onCmFocus"
+                  @input="onCmCodeChange">
+      </codemirror>
     </div>
   </div>
 </template>
