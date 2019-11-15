@@ -40,9 +40,9 @@
               <option value="material-ocean">material-ocean</option>
               <option value="monokai">monokai</option>
             </select>
-            <div class="input-group-prepend ml-2">
+            <div class="input-group-prepend align-items-center ml-2">
                <div class="input-group-text" id="btnGroupAddon">Font Size</div>
-              <input type="range" class="custom-range" min="8" max="30" id="customRange2" value="10" v-on:change="changeFontSize">
+              <input type="range" class="custom-range" min="8" max="30" id="customRange" value="10" v-on:change="changeFontSize">
             </div>
            
           </div>
@@ -142,7 +142,7 @@ export default {
       this.code = newCode
     },
     changeFontSize(){
-      let size = document.getElementById('customRange2').value;
+      let size = document.getElementById('customRange').value;
       document.getElementById('codeEditor').setAttribute('style', 'font-size:'+size+'px');
     },
     addPost(){
