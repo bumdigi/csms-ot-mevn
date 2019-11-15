@@ -36,6 +36,7 @@
     methods: {
       addPost(){
         let uri = 'http://localhost:4000/posts/add'
+        console.log(this.post)
         this.axios.post(uri, this.post).then(() => {
           this.$router.push({name: 'posts'})
         })
