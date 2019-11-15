@@ -5,6 +5,7 @@ var runWandbox = require('wandbox-api');
 
 let Post = require('../models/post.model');
 
+
 postRoutes.route('/add').post((req,res) => {
   let post = new Post(req.body)
   console.log(post)
