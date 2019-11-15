@@ -18,7 +18,6 @@ import CreateComponent from './components/CreateComponent.vue'
 import IndexComponent from './components/IndexComponent.vue'
 import EditComponent from './components/EditComponent.vue'
 import EditorComponent from './components/EditorComponent'
-import ResultComponent from './components/ResultComponent'
 import LoginComponent from './components/login/LoginComponent'
 import SignUpComponent from './components/login/SignUpComponent'
 
@@ -30,8 +29,7 @@ const routes = [
     path: '/',
     components: {
       default : HomeComponent,
-      Editor: EditorComponent,
-      Result: ResultComponent
+      Editor: EditorComponent
     }
   },
   {

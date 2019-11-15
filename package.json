@@ -12,6 +12,7 @@
     "bootstrap": "^4.3.1",
     "codemirror": "^5.49.2",
     "core-js": "^3.3.2",
+    "nodemon": "^1.19.4",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.5",
     "vue-codemirror": "^4.0.6",

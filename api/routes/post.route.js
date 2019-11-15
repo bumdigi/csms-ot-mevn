@@ -43,10 +43,12 @@ postRoutes.route('/code').post((req,res) => { //
           res.status(400).send(error.message)
           //throw new Error(error.message);
         }
+        console.log(results)
+
         var response = JSON.parse(JSON.stringify(results));
         console.log('output:')
-        console.log(response['program_output'])
-        post['result']= response['program_output'] 
+        console.log(response['program_message'])
+        post['result']= response['program_message'] 
         res.status(200).json(post)
       });
     })

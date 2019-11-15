@@ -38,7 +38,7 @@
     <transition-group name="fade">
       <router-view :key="0"></router-view>
       <router-view name="Editor" :key="1"></router-view>
-      <router-view name="Result" :key="2"></router-view>
+      <!-- <router-view name="Result" :key="2"></router-view> -->
     </transition-group>
   </div>
 </template>
