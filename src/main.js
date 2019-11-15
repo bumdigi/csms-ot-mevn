@@ -18,6 +18,7 @@ import CreateComponent from './components/CreateComponent.vue'
 import IndexComponent from './components/IndexComponent.vue'
 import EditComponent from './components/EditComponent.vue'
 import EditorComponent from './components/EditorComponent'
+import ResultComponent from './components/ResultComponent'
 
 // VueRouter에 등록할 router를 배열로 설정
 // path url로 접근시 해당 컴포넌트로 접근
@@ -27,7 +28,8 @@ const routes = [
     path: '/',
     components: {
       default : HomeComponent,
-      Editor: EditorComponent
+      Editor: EditorComponent,
+      Result: ResultComponent
     }
   },
   {

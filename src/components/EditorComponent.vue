@@ -158,10 +158,14 @@ export default {
       let post = {}
       post.text = this.code
       post.mode = this.cmOptions.mode
-      let url = 'http://localhost:4000/posts/code'
-      this.axios.post(url, post).then(() => {
+      let uri = 'http://localhost:4000/posts/code'
+      this.axios.post(uri, post).then(() => {
         alert('Success!!! check console')
         //다음 창
+        console.log(this.$route.params.result)
+        if(this.$route.params.result != null) {
+         this.post.result = this.$route.params.result
+        }
       })
     }
   },

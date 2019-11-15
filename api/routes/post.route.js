@@ -1,13 +1,9 @@
 const express = require('express')
 const postRoutes = express.Router()
 
-<<<<<<< HEAD:api/post.route.js
 var runWandbox = require('wandbox-api');
 
-let Post = require('./post.model')
-=======
 let Post = require('../models/post.model')
->>>>>>> a32a543b6c25f63ac6fb554db9b6ec3df2c3581f:api/routes/post.route.js
 
 postRoutes.route('/add').post((req,res) => {
   let post = new Post(req.body)
@@ -50,13 +46,27 @@ postRoutes.route('/code').post((req,res) => { //
         var response = JSON.parse(JSON.stringify(results));
         console.log('output:')
         console.log(response['program_output'])
-        res.status(200).json({'program_output' : response['program_output']})
+        post['result']= response['program_output'] 
+        res.status(200).json(post)
       });
     })
     .catch(() => {
       res.status(400).send('unable to save to database')
     })
 })
+
+// postRoutes.route('/code/:id').get((req, res) => {
+//   console.log('enter')
+//   let id = req.params.id
+//   console.log(id)
+//   Post.findById(id, (err, post) => {
+//     if (err) {
+//       res.json(err)
+//     } else {
+//       res.json(post)
+//     }
+//   })
+// })
 
 postRoutes.route('/').get((req, res) => {
   Post.find((err, posts) => {
