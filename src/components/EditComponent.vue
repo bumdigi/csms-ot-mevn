@@ -44,9 +44,7 @@
       updatePost() {
         let uri = `http://localhost:4000/posts/update/${this.$route.params.id}`
         this.axios.post(uri, this.post).then(() => {
-          this.axios.post(uri, this.post).then(() => {
-            this.$router.push({name: 'posts'})
-          })
+          this.$router.push({name: 'posts'})
         })
       }
     }

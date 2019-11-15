@@ -5,14 +5,14 @@ const PORT = 4000
 const cors = require('cors')
 const mongoose = require('mongoose')
 const config = require('./DB.js')
-const postRoute = require('./post.route')
+const postRoute = require('./routes/post.route')
 
 const runWandbox = require('wandbox-api'); //
 
 mongoose.Promise = global.Promise
 mongoose.connect(config.DB, {useNewUrlParser: true, useUnifiedTopology: true}).then(
   () => {console.log(`Database is connected`)},
-  err => {console.log(`Can not connect to the database`)}
+  err => {console.log(`Can not connect to the database ${err}`)}
 )
 
 //code입력
