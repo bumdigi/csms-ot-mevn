@@ -8,7 +8,7 @@
               <div class="input-group-text" id="btnGroupAddon">Mode</div>
             </div>
             <select class="form-control custom-select" v-model="cmOptions.mode">
-              <option value="text/javascript" selected>javascript</option>
+              <option value="text/javascript" lang="" selected>javascript</option>
               <option value="htmlmixed">HTML</option>
               <option value="css">css</option>
               <option value="go">Go</option>
