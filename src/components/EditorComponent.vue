@@ -44,7 +44,6 @@
                <div class="input-group-text" id="btnGroupAddon">Font Size</div>
               <input type="range" class="custom-range" min="8" max="30" id="customRange" value="10" v-on:change="changeFontSize">
             </div>
-           
           </div>
           <div class="btn-group ml-2" role="group" aria-label="First group">
             <button type="button" class="btn btn-secondary">Compile</button>

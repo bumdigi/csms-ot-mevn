@@ -1,7 +1,7 @@
 const express = require('express')
 const postRoutes = express.Router()
 
-let Post = require('./post.model')
+let Post = require('../models/post.model')
 
 postRoutes.route('/add').post((req,res) => {
   let post = new Post(req.body)
