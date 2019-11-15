@@ -62,7 +62,7 @@
                   @input="onCmCodeChange">
       </codemirror>
     </div>
-    <div class="container" id="result">
+    <div class="container">
       <textarea readonly="readonly" id="result" v-model="result" rows="10" style="width:100%; background-color:black; color:white">
       </textarea>
     </div>
@@ -166,7 +166,12 @@ export default {
       let url = 'http://localhost:4000/posts/code'
       this.axios.post(url, post).then((response) => {
         console.log(JSON.stringify(response))
-        this.result = response.data.result
+        if (response.data.result.status === "1") {
+          let textarea = document.getElementById('result')
+          let style = textarea.getAttribute('style')
+          document.getElementById('result').setAttribute('style', style + ';color:red')
+        }
+        this.result = response.data.result.message
       })
     }
   },

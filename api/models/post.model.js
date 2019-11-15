@@ -12,7 +12,7 @@ let Post = new Schema({
     type: String
   },
   result: {
-    type: String
+    type: JSON
   }
 },{
   collection: 'posts'
