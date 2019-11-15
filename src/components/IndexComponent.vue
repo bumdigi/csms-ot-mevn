@@ -22,7 +22,7 @@
             <td>{{ post.id }}</td>
             <td>{{ post.text }}</td>
             <td>{{ post.mode }}</td>
-            <td><router-link :to="{name: 'home', params: { text: post.text, mode: post.mode }}" class="btn btn-primary">View</router-link></td>
+            <td><router-link :to="{name: 'home', params: { id: post._id, text: post.text, mode: post.mode }}" class="btn btn-primary">View</router-link></td>
             <td><button class="btn btn-danger" @click.prevent="deletePost(post._id)">Delete</button></td>
           </tr>
         </tbody>
