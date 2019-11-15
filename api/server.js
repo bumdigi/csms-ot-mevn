@@ -6,6 +6,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const config = require('./DB.js')
 const postRoute = require('./routes/post.route')
+const loginRoute = require('./routes/login.route')
 
 const runWandbox = require('wandbox-api'); //
 
@@ -31,6 +32,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
 app.use('/posts', postRoute)
+app.use('/login', loginRoute)
 
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`)
