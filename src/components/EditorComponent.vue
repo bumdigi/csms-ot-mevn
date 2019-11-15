@@ -166,10 +166,14 @@ export default {
       let url = 'http://localhost:4000/posts/code'
       this.axios.post(url, post).then((response) => {
         console.log(JSON.stringify(response))
+
+        let textarea = document.getElementById('result')
+        let style = "width:100%; background-color:black"
+
         if (response.data.result.status === "1") {
-          let textarea = document.getElementById('result')
-          let style = textarea.getAttribute('style')
-          document.getElementById('result').setAttribute('style', style + ';color:red')
+          textarea.setAttribute('style', style + ';color:red')
+        }else {
+          textarea.setAttribute('style', style + ';color:white')
         }
         this.result = response.data.result.message
       })

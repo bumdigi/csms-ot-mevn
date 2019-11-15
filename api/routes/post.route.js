@@ -49,6 +49,9 @@ postRoutes.route('/code').post((req,res) => { //
         var result = {}
         result['status'] = response['status'];
         result['message'] = response['program_message']
+        if (result['message'] === undefined) {
+          result['message'] = response['compiler_message']
+        }
         post['result'] = result;
 
         res.status(200).json(post)
