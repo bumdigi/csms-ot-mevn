@@ -62,6 +62,10 @@
                   @input="onCmCodeChange">
       </codemirror>
     </div>
+    <div class="container">
+      <textarea readonly="readonly" id="result" v-model="result" rows="10" style="width:100%; background-color:black; color:white">
+      </textarea>
+    </div>
   </div>
 </template>
 
@@ -105,7 +109,7 @@ import 'codemirror/lib/codemirror.css'
 export default {
   data () {
     return {
-      code: 'const a = 10',
+      code: 'console.log("Hello CSMS!")',
       cmOptions: {
         // codemirror options
         tabSize: 4,
@@ -113,7 +117,8 @@ export default {
         theme: 'base16-dark',
         lineNumbers: true,
         line: true,
-      }
+      },
+      result: 'Waiting for Compile'
     }
   },
   created() {
@@ -159,9 +164,14 @@ export default {
       post.text = this.code
       post.mode = this.cmOptions.mode
       let url = 'http://localhost:4000/posts/code'
-      this.axios.post(url, post).then(() => {
-        alert('Success!!! check console')
-        //다음 창
+      this.axios.post(url, post).then((response) => {
+        console.log(JSON.stringify(response))
+        if (response.data.result.status === "1") {
+          let textarea = document.getElementById('result')
+          let style = textarea.getAttribute('style')
+          document.getElementById('result').setAttribute('style', style + ';color:red')
+        }
+        this.result = response.data.result.message
       })
     }
   },

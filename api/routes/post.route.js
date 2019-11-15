@@ -45,8 +45,13 @@ postRoutes.route('/code').post((req,res) => { //
         }
         var response = JSON.parse(JSON.stringify(results));
         console.log('output:')
-        console.log(response['program_output'])
-        res.status(200).json({'program_output' : response['program_output']})
+        console.log(response['program_message'])
+        var result = {}
+        result['status'] = response['status'];
+        result['message'] = response['program_message']
+        post['result'] = result;
+
+        res.status(200).json(post)
       });
     })
     .catch(() => {
