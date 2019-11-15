@@ -29,7 +29,7 @@ export default {
   },
   methods:{
     signUp: function(){
-      this.$http.post('/signUp', {
+      this.$http.post('http://localhost:4000/login/signUp', {
         user: this.user
       }).then((response) => {
         if(response.data.result === 0){
@@ -37,7 +37,7 @@ export default {
         }
         if(response.data.response === 1){
           alert("회원가입이 완료되었습니다.");
-          this.$router.push('/login');
+          this.$router.push('/');
         }
       })
       .catch(function(error){
@@ -57,8 +57,6 @@ export default {
 body {
     display: -ms-flexbox;
     display: flex;
-    /* -ms-flex-align: center; */
-    /* //align-items: center; */
     padding-top: 40px;
     padding-bottom: 40px;
 }

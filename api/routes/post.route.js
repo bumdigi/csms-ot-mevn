@@ -3,7 +3,6 @@ const postRoutes = express.Router();
 
 var runWandbox = require('wandbox-api');
 
-let Post = require('./post.model');
 let Post = require('../models/post.model');
 
 postRoutes.route('/add').post((req,res) => {

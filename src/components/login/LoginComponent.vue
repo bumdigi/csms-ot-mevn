@@ -28,7 +28,7 @@ export default {
   },
   methods:{
     login: function(){
-      this.$http.post('/checkLogin', {
+      this.$http.post('http://localhost:4000/login/checkLogin', {
         user:this.user
       })
       .then(

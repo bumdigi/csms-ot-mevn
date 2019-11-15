@@ -12,12 +12,12 @@ router.get('/', function(req, res, next){
 router.post('/signUp', function(req, res, next){
   const user = new User();
 
-  user.id = res.body.user.id;
-  user.password = res.body.user.password;
-  user.name = res.body.user.name;
+  user.id = req.body.user.id;
+  user.password = req.body.user.password;
+  user.name = req.body.user.name;
 
   //암호화
-  let cipher = crypto.createCipher('csms2019', 'key');
+  let cipher = crypto.createCipher('aes192', 'key');
   cipher.update(user.password, 'utf8', 'base64');
   let cipherOutput = cipher.final('base64');
   user.password = cipherOutput;
@@ -36,7 +36,7 @@ module.exports = router;
 
 //check login
 router.post('/checkLogin', function(req, res, next){
-  let cipher = crypto.createCipher('csms2019', 'key');
+  let cipher = crypto.createCipher('aes192', 'key');
   cipher.update(req.body.user.password, 'utf8', 'base64');
   let chipherPW = cipher.final('base64');
 

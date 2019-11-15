@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 let userSchema = new Schema({
   user: String,
   name: String,
-  id: Number,
+  id: String,
   password: String,
   create_date: {type: Date, default: Date.now}
 });
