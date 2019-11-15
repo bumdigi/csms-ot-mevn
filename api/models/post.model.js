@@ -10,6 +10,9 @@ let Post = new Schema({
   },
   mode: {
     type: String
+  },
+  result: {
+    type: String
   }
 },{
   collection: 'posts'
