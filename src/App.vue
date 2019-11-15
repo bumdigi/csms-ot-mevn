@@ -10,10 +10,28 @@
           <router-link to="/create" class="nav-link">Create Post</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/posts" class="nav-link">Posts</router-link>
+          <router-link to="/posts" class="nav-link">List</router-link>
         </li>
       </ul>
-    </nav><br />
+    </nav>
+    <header class="masthead bg-primary text-white text-center">
+      <div class="d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image -->
+        <img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">
+        <!-- Masthead Heading -->
+        <h1 class="masthead-heading text-uppercase mb">CSMS EDITOR</h1>
+        <!-- Icon Divider -->
+        <div class="divider-custom divider-light">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="divider-custom-line"></div>
+        </div>
+        <!-- Masthead Subheading -->
+        <p class="masthead-subheading font-weight-light mb-0 pb-4">Any language, any theme, can be compiled at any time</p>
+      </div>
+    </header>
     <transition-group name="fade">
       <router-view :key="0"></router-view>
       <router-view name="Editor" :key="1"></router-view>
