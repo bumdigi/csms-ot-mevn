@@ -8,7 +8,7 @@
               <div class="input-group-text" id="btnGroupAddon">Mode</div>
             </div>
             <select class="form-control custom-select" v-model="cmOptions.mode">
-              <option value="text/javascript" selected>javascript</option>
+              <option value="text/javascript" data-compile="nodejs-head" selected>javascript</option>
               <option value="htmlmixed">HTML</option>
               <option value="css">css</option>
               <option value="go">Go</option>
@@ -47,7 +47,7 @@
            
           </div>
           <div class="btn-group ml-2" role="group" aria-label="First group">
-            <button type="button" class="btn btn-secondary">Compile</button>
+            <button type="button" class="btn btn-secondary" @click.prevent.stop="compile">Compile</button>
             <button type="button" class="btn btn-secondary">Stop</button>
             <button type="button" class="btn btn-secondary" @click.prevent.stop="addPost">Submit</button>
           </div>
@@ -153,6 +153,16 @@ export default {
       let uri = 'http://localhost:4000/posts/add'
       this.axios.post(uri, post).then(() => {
         alert('Success')
+      })
+    },
+    compile(){
+      let post = {}
+      post.text = this.code
+      post.mode = this.cmOptions.mode
+      let url = 'http://localhost:4000/posts/code'
+      this.axios.post(url, post).then(() => {
+        alert('Success!!! check console')
+        //다음 창
       })
     }
   },

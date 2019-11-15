@@ -1,6 +1,8 @@
 const express = require('express')
 const postRoutes = express.Router()
 
+var runWandbox = require('wandbox-api');
+
 let Post = require('./post.model')
 
 postRoutes.route('/add').post((req,res) => {
@@ -15,11 +17,37 @@ postRoutes.route('/add').post((req,res) => {
     })
 })
 
+
+
 postRoutes.route('/code').post((req,res) => { //
   let post = new Post(req.body)
+  console.log(post)
   post.save()
     .then(() => {
-      res.status(200).json({'business': 'business in added successfully'})
+      var lang;
+      if(post['mode']=='text/javascript'){
+        lang = 'nodejs-head'
+      }else if(post['mode']=='go'){
+        lang = 'go-head'
+      }else if(post['mode']=='text/x-java'){
+        lang = 'openjdk-head'
+      }else if(post['mode']=='text/x-c++src'){
+        lang = 'gcc-head'
+        console.log(lang)
+      }else {
+        lang = 'gcc-head-c'
+        console.log(lang)
+      }
+      runWandbox.fromString( post['text'], {'compiler':lang},function clbk(error, results){
+        if(error){
+          res.status(400).send(error.message)
+          //throw new Error(error.message);
+        }
+        var response = JSON.parse(JSON.stringify(results));
+        console.log('output:')
+        console.log(response['program_output'])
+        res.status(200).json({'program_output' : response['program_output']})
+      });
     })
     .catch(() => {
       res.status(400).send('unable to save to database')
