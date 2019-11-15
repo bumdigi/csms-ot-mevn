@@ -1,13 +1,9 @@
 const express = require('express')
 const postRoutes = express.Router()
 
-<<<<<<< HEAD:api/post.route.js
 var runWandbox = require('wandbox-api');
 
-let Post = require('./post.model')
-=======
 let Post = require('../models/post.model')
->>>>>>> a32a543b6c25f63ac6fb554db9b6ec3df2c3581f:api/routes/post.route.js
 
 postRoutes.route('/add').post((req,res) => {
   let post = new Post(req.body)
