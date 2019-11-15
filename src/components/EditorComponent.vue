@@ -9,12 +9,16 @@
             </div>
             <select class="form-control custom-select" v-model="cmOptions.mode">
               <option value="text/javascript" data-compile="nodejs-head" selected>javascript</option>
-              <option value="htmlmixed">HTML</option>
-              <option value="css">css</option>
               <option value="go">Go</option>
               <option value="text/x-java">Java</option>
               <option value="text/x-c++src">C++</option>
               <option value="text/x-csrc">C</option>
+              <option value="python">Python</option>
+              <option value="sql">SQL</option>
+              <option value="php">PHP</option>
+              <option value="r">R</option>
+              <option value="htmlmixed">HTML(X)</option>
+              <option value="css">css(X)</option>
             </select>
             <div class="input-group-prepend ml-2">
               <div class="input-group-text" id="btnGroupAddon">Theme</div>
@@ -78,6 +82,11 @@ import 'codemirror/mode/htmlmixed/htmlmixed.js'
 import 'codemirror/mode/css/css.js'
 import 'codemirror/mode/go/go.js'
 import 'codemirror/mode/clike/clike.js'
+import 'codemirror/mode/python/python.js'
+import 'codemirror/mode/sql/sql.js'
+import 'codemirror/mode/haskell/haskell.js'
+import 'codemirror/mode/r/r.js'
+import 'codemirror/mode/php/php.js'
 
 // theme css
 import 'codemirror/theme/base16-dark.css'
