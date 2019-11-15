@@ -29,7 +29,7 @@ postRoutes.route('/code').post((req,res) => { //
       if(mode=='text/javascript'){
         lang = 'nodejs-head'
       }else if(mode=='go'){
-        lang = 'go-head'
+        lang = 'go-1.13.4'
       }else if(mode=='text/x-java'){
         lang = 'openjdk-head'
       }else if(mode=='text/x-c++src'){
