@@ -18,6 +18,8 @@ import CreateComponent from './components/CreateComponent.vue'
 import IndexComponent from './components/IndexComponent.vue'
 import EditComponent from './components/EditComponent.vue'
 import EditorComponent from './components/EditorComponent'
+import LoginComponent from './components/login/LoginComponent'
+import SignUpComponent from './components/login/SignUpComponent'
 
 // VueRouter에 등록할 router를 배열로 설정
 // path url로 접근시 해당 컴포넌트로 접근
@@ -44,6 +46,20 @@ const routes = [
     name: 'edit',
     path: '/',
     component: EditComponent
+  },
+  {
+    name: 'login',
+    path: '/login',
+    components: {
+      default: LoginComponent
+    }
+  },
+  {
+    name: 'signup',
+    path: '/login/signUp',
+    components: {
+      default: SignUpComponent
+    }
   }
 ]
 
