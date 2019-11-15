@@ -13,6 +13,9 @@
           <router-link to="/posts" class="nav-link">List</router-link>
         </li>
       </ul>
+      <span>
+        <router-link to="/login" class="nav-link">Login</router-link>
+      </span>
     </nav>
     <header class="masthead bg-primary text-white text-center">
       <div class="d-flex align-items-center flex-column">
