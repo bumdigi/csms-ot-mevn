@@ -1,0 +1,78 @@
+$primary-color: #1abc9c;
+$secondary-color: #2c3e50;
+$font-family: Montserrat,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+
+@font-face {
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.bg-primary {
+    background-color: $primary-color !important
+}
+
+.bg-secondary {
+    background-color: $secondary-color !important;
+}
+
+.btn-primary {
+  background-color:  $primary-color;
+  border-color:  $primary-color;
+}
+
+.btn-secondary {
+  background-color: $secondary-color;
+  border-color: $secondary-color;
+}
+
+.text-secondary {
+  color: $secondary-color !important;
+}
+
+.container {
+    width: 100%;
+}
+.main-nav {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-weight: 700;
+}
+
+.code-editor {
+  font-weight: 600;
+}
+
+.nav-link {
+    color: #fff;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.navbar>.container, .navbar>.container-fluid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.masthead {
+    padding-top: calc(1rem + 63px);
+    padding-bottom: 2rem;
+}
+
+.ml-auto, .mx-auto {
+    margin-left: auto!important;
+}
+
+.navbar-expand-lg {
+    display: flex!important;
+    flex-basis: auto;
+}
+
+.CodeMirror {
+    height: 500px !important;
+  }
