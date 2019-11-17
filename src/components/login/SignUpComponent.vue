@@ -35,9 +35,11 @@ export default {
         if(response.data.result === 0){
           alert('Error, try again');
         }
-        if(response.data.response === 1){
+        if(response.data.result === 1){
           alert("회원가입이 완료되었습니다.");
           this.$router.push('/');
+        }else{
+          alert("예기치 못한 결과")
         }
       })
       .catch(function(error){

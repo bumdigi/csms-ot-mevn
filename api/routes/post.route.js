@@ -24,19 +24,26 @@ postRoutes.route('/code').post((req,res) => { //
   console.log(post)
   post.save()
     .then(() => {
-      var lang;
-      if(post['mode']=='text/javascript'){
+      var lang
+      var mode = post['mode']
+      if(mode=='text/javascript'){
         lang = 'nodejs-head'
-      }else if(post['mode']=='go'){
-        lang = 'go-head'
-      }else if(post['mode']=='text/x-java'){
+      }else if(mode=='go'){
+        lang = 'go-1.13.4'
+      }else if(mode=='text/x-java'){
         lang = 'openjdk-head'
-      }else if(post['mode']=='text/x-c++src'){
+      }else if(mode=='text/x-c++src'){
         lang = 'gcc-head'
-        console.log(lang)
-      }else {
+      }else if(mode=='text/x-csrc') {
         lang = 'gcc-head-c'
-        console.log(lang)
+      }else if(mode=='python') {
+        lang = 'cpython-head'
+      }else if(mode=='sql') {
+        lang = 'sqlite-head'
+      }else if(mode=='php') {
+        lang = 'php-head'
+      }else if(mode=='r') {
+        lang = 'r-head'
       }
       runWandbox.fromString( post['text'], {'compiler':lang},function clbk(error, results){
         if(error){
@@ -45,8 +52,16 @@ postRoutes.route('/code').post((req,res) => { //
         }
         var response = JSON.parse(JSON.stringify(results));
         console.log('output:')
-        console.log(response['program_output'])
-        res.status(200).json({'program_output' : response['program_output']})
+        console.log(response['program_message'])
+        var result = {}
+        result['status'] = response['status'];
+        result['message'] = response['program_message']
+        if (result['message'] === undefined) {
+          result['message'] = response['compiler_message']
+        }
+        post['result'] = result;
+
+        res.status(200).json(post)
       });
     })
     .catch(() => {
