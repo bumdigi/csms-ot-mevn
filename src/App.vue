@@ -14,7 +14,8 @@
         </li>
       </ul>
       <span>
-        <router-link to="/login" class="nav-link">Login</router-link>
+        <router-link v-if="typeof(user) == 'undefined'" to="/login" class="nav-link">Login</router-link>
+        <router-link v-if="typeof(user) != 'undefined'" to="/login/logout" class="nav-link">Logout</router-link>
       </span>
     </nav>
     <header class="masthead bg-primary text-white text-center">

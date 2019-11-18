@@ -1,14 +1,15 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+let passportLocalMongoose = require('passport-local-mongoose')
+let mongoose = require('mongoose')
+let Schema = mongoose.Schema
 
-let userSchema = new Schema({
-  user: String,
-  name: String,
+const userSchema = new mongoose.Schema({
+  username: String,
   id: String,
   password: String,
   create_date: {type: Date, default: Date.now}
-});
+})
 
-//Collection은 users
+userSchema.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model('user', userSchema);
+
+module.exports = mongoose.model('user', userSchema)

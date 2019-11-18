@@ -28,7 +28,7 @@ export default {
   },
   methods:{
     login: function(){
-      this.$http.post('http://localhost:4000/login/checkLogin', {
+      this.$http.post('http://localhost:4000/login/login', {
         user:this.user
       })
       .then(
@@ -41,6 +41,11 @@ export default {
       )
       .catch(error=>{
         alert(error);
+      })
+    },
+    logout: function(){
+      this.$http.post('http://localhost:4000/login/logout', {
+        user:this.user
       })
     }
   }

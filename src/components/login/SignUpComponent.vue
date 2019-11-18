@@ -5,7 +5,7 @@
       
       <h1 class="h3 mb-3 font-weight-normal"> Sign Up</h1>
       <label for="inputName">User Name</label>
-      <input  v-model="user.name" type="text" id="inputName" class="form-control" placeholder="names" required="" autofocus="">
+      <input  v-model="user.username" type="text" id="inputName" class="form-control" placeholder="names" required="" autofocus="">
       <label for="inputEmail">Email address</label>
       <input v-model="user.id" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
       <label for="inputPassword">Password</label>
@@ -23,7 +23,7 @@ export default {
       user:{
         id: '',
         password: '',
-        name: ''
+        username: ''
       }
     }
   },

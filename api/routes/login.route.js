@@ -1,51 +1,53 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../models/user.model.js');
-const crypto = require('crypto');
+const User = require('../models/user.model.js')
+const crypto = require('crypto')
+const passport = require('passport')
 
-//login
-router.get('/', function(req, res, next){
-
+router.get('/', function(req, res) {
+  res.json({
+    user: req.user,
+    message: req.flash('error')
+  });
 });
 
-//Sign up
-router.post('/signUp', function(req, res, next){
-  const user = new User();
+router.get('/signUp', function(req, res) {
+  res.json('signUp', {});
+});
 
-  user.id = req.body.user.id;
-  user.password = req.body.user.password;
-  user.name = req.body.user.name;
-
-  //암호화
-  let cipher = crypto.createCipher('aes192', 'key');
-  cipher.update(user.password, 'utf8', 'base64');
-  let cipherOutput = cipher.final('base64');
-  user.password = cipherOutput;
-
-  user.save(function(err){
-    if(err){
-      console.log(err);
-      res.json({result: 0});
-      return;
+router.post('/signUp', function(req, res, next) {
+  console.log('registering user');
+  User.register(({
+    username: req.body.user.username, 
+    id: req.body.user.id
+  }), req.body.user.password, function(err) {
+    if (err) {
+      console.log('error while user register!', err);
+      return next(err);
     }
+
+    console.log('user registered!');
     res.json({result: 1});
   });
 });
 
-module.exports = router;
-
-//check login
-router.post('/checkLogin', function(req, res, next){
-  let cipher = crypto.createCipher('aes192', 'key');
-  cipher.update(req.body.user.password, 'utf8', 'base64');
-  let chipherPW = cipher.final('base64');
-
-  //find user in MongoDB
-  User.findOne({id:req.body.user.id, password: chipherPW}, function(err, user){
-    //구문 Error
-    if(err) return res.status(500).json({error: err});
-    //User가 없으면 error
-    if(!user) return res.status(404).json({error: 'user not found'});
-    res.json(user);
-  })
+router.get('/login', function(req, res) {
+  res.status(200).json({
+    user: req.user,
+    message: req.flash('error')
+    });
 });
+
+router.post('/login', passport.authenticate('local', {
+   failureRedirect: '/login',
+    failureFlash: true 
+  }), function(req, res) {
+    res.redirect('/');
+  });
+
+router.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('/');
+});
+
+module.exports = router;
