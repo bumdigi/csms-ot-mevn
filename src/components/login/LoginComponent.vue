@@ -34,6 +34,7 @@ export default {
       .then(
         (response)=>{
           alert('success login' + response);
+          this.$router.push('/');
         },
         (error)=>{
           alert(error.response.data.error);
