@@ -4,9 +4,10 @@
     <div id="login">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input v-model="user.id" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+      <input v-model="user.email" type="email" id="email" class="form-control" placeholder="Email address" required="" autofocus="">
       <label for="inputPassword" class="sr-only">Password</label>
-      <input v-model="user.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+      <input v-model="user.password" type="password" id="password" class="form-control" placeholder="Password" required="">
+      <!-- <div v-if="typeof(message) != 'undefined'" class="alert alert-danger">{{ message }}</div> -->
       <button class="btn btn-lg btn-primary btn-block" type="submit" v-on:click="login">Sign in</button>
       <a v-bind:href="url.signUpUrl"> Sign Up </a>
     </div>
@@ -18,34 +19,22 @@ export default {
   data: function(){
     return{
       user:{
-        id:'',
+        email:'',
         password:'',
       },
       url: {
-        signUpUrl: '/login/signUp'
+        signUpUrl: '/signUp'
       }
     }
   },
   methods:{
     login: function(){
-      this.$http.post('http://localhost:4000/login/login', {
+      this.$http.post('http://localhost:4000/login', {
         user:this.user
-      })
-      .then(
-        (response)=>{
-          alert('success login' + response);
-          this.$router.push('/');
-        },
-        (error)=>{
-          alert(error.response.data.error);
-        }
-      )
-      .catch(error=>{
-        alert(error);
       })
     },
     logout: function(){
-      this.$http.post('http://localhost:4000/login/logout', {
+      this.$http.post('http://localhost:4000/logout', {
         user:this.user
       })
     }

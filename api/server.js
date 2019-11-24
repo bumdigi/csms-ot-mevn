@@ -5,9 +5,9 @@ const PORT = 4000
 const cors = require('cors')
 const mongoose = require('mongoose')
 const config = require('./DB.js')
-const configPassport = require('./passport.js')
+const configPassport = require('./config/passport')
 const postRoute = require('./routes/post.route')
-const loginRoute = require('./routes/login.route')
+const loginRoute = require('./routes/user.route')
 const session = require('express-session')
 const passport = require('passport')
 const flash = require('connect-flash')
@@ -32,19 +32,21 @@ runWandbox.fromString('console.log(1+1);',{'compiler':'nodejs-head'},function cl
 	console.log(response['program_output']);
 });
 
+configPassport(app, passport)
+
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
 app.use(cookieParser('secret'))
-//app.use(session({keys: ['secretkey1', 'secretkey2', '...']}))
 app.use(session({ key: 'secret' })) //sessionID 암호화
-app.use(flash())
 
 app.use(passport.initialize()) // passport 초기화
 app.use(passport.session())
+app.use(flash())
+
 app.use('/posts', postRoute)
-app.use('/login', loginRoute)
+app.use('/', loginRoute)
 
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`)

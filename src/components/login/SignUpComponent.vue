@@ -5,11 +5,12 @@
       
       <h1 class="h3 mb-3 font-weight-normal"> Sign Up</h1>
       <label for="inputName">User Name</label>
-      <input  v-model="user.username" type="text" id="inputName" class="form-control" placeholder="names" required="" autofocus="">
+      <input  v-model="user.name" type="text" id="name" class="form-control" placeholder="names" required="" autofocus="">
       <label for="inputEmail">Email address</label>
-      <input v-model="user.id" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+      <input v-model="user.email" type="email" id="email" class="form-control" placeholder="Email address" required="" autofocus="">
       <label for="inputPassword">Password</label>
-      <input v-model="user.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+      <input v-model="user.password" type="password" id="password" class="form-control" placeholder="Password" required="">
+      <!-- <div v-if="typeof(message) != 'undefined'" class="alert alert-danger">{{ message }}</div> -->
       <button class="btn btn-lg btn-primary btn-block" type="submit" v-on:click="signUp">Sign Up</button>
     </div>
     </form>
@@ -21,29 +22,16 @@ export default {
   data: function(){
     return {
       user:{
-        id: '',
+        email: '',
         password: '',
-        username: ''
+        name: ''
       }
     }
   },
   methods:{
     signUp: function(){
-      this.$http.post('http://localhost:4000/login/signUp', {
+      this.$http.post('http://localhost:4000/signUp', {
         user: this.user
-      }).then((response) => {
-        if(response.data.result === 0){
-          alert('Error, try again');
-        }
-        if(response.data.result === 1){
-          alert("회원가입이 완료되었습니다.");
-          this.$router.push('/');
-        }else{
-          alert("예기치 못한 결과")
-        }
-      })
-      .catch(function(error){
-        alert(error);
       })
     }
   }
