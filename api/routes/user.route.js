@@ -8,9 +8,9 @@ router.get('/', function(req, res) {
   
 });
 
-router.get('/signUp', function(req, res) {
-  res.json('signUp', {});
-});
+// router.get('/signUp', function(req, res) {
+//   res.status(200).json('signUp');
+// });
 
 router.post('/signUp', passport.authenticate('local-signup', {
   successRedirect: '/login',
@@ -18,9 +18,9 @@ router.post('/signUp', passport.authenticate('local-signup', {
   failureFlash: true
 }))
 
-router.get('/login', function(req, res) {
-  res.json('login', {});
-});
+// router.get('/login', function(req, res) {
+//   res.status(200).json('login', {});
+// });
 
 router.post('/login', passport.authenticate('local-login', {
   successRedirect: '/',

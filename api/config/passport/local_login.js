@@ -8,6 +8,7 @@
  */
 
 var LocalStrategy = require('passport-local').Strategy;
+var Users = require('../../models/user.model')
 
 module.exports = new LocalStrategy({
 		usernameField : 'email',
@@ -16,8 +17,8 @@ module.exports = new LocalStrategy({
 	}, function(req, email, password, done) { 
 		console.log('passport의 local-login 호출됨 : ' + email + ', ' + password);
 		
-		var database = req.app.get('database');
-	    database.UserModel.findOne({ 'email' :  email }, function(err, user) {
+
+		Users.findOne({ 'email' :  email }, function(err, user) {
 	    	if (err) { return done(err); }
 
 	    	// 등록된 사용자가 없는 경우
