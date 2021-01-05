@@ -9,7 +9,7 @@
     "sass:compile": "node-sass --output-style nested sass/csms.scss --output public/csms.css"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "codemirror": "^5.49.2",
     "core-js": "^3.3.2",
